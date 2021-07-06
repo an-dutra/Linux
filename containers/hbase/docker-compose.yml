@@ -3,13 +3,12 @@ services:
     hbase:
         container_name: hbase
         ports:
-            - 16000:16000
-            - 16010:16010
-            - 16020:16020
-            - 16030:16030
-            - 2888:2888
-            - 3888:3888
             - 2181:2181
+            - 8085:8085
+            - 9090:9090
+            - 9095:9095
+            - 16010:16010
+            
         volumes:
             - "/opt/hbase/data:/data"
         image: dajobe/hbase
