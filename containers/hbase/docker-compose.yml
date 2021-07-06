@@ -1,0 +1,16 @@
+version: "3"
+    services:
+        hbase:
+            container_name: hbase
+            ports:
+                - 16000:16000
+                - 16010:16010
+                - 16020:16020
+                - 16030:16030
+                - 2888:2888
+                - 3888:3888
+                - 2181:2181
+            volumes:
+                - "/opt/hbase/data:/data"
+            image: dajobe/hbase
+            command: bash
