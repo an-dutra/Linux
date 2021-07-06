@@ -11,7 +11,7 @@ def  get_arguments():
     parser.add_argument("-o", "--output", dest="output_file", help="File generated with Put Commands")
     options = parser.parse_args()
 
-    if not options.target:
+    if not options.source_file:
         parser.error("[-] Please specify a target ip, --help for more info.")
     
     return options
