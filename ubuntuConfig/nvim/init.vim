@@ -1,10 +1,12 @@
 call plug#begin("~/.vim/plugged")
   " Theme
-  Plug 'dracula/vim'
+  " Plug 'dracula/vim'
+  Plug 'arcticicestudio/nord-vim'
 
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
@@ -17,6 +19,10 @@ call plug#begin("~/.vim/plugged")
   " File Search
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+
+  " Auto Close Brackets
+  Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " Enable theming support
@@ -26,16 +32,18 @@ endif
 
 " Theme
 syntax enable
-colorscheme dracula
+" colorscheme dracula
+colorscheme nord
+
 
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMinimalUI = 0
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+noremap <silent> <C-b> :NERDTreeToggle<CR>
 
 nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
@@ -75,8 +83,11 @@ function! OpenTerminal()
 endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 
+" Additional commands to vim
 " change tab
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set number
+set smarttab
